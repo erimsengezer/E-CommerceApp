@@ -7,7 +7,7 @@
 //
 
 protocol MainCoordinatorProtocol: AnyObject {
-    
+    func coordinateToProductDetail(id: Int)
 }
 
 final class MainCoordinator: NavigationCoordinator , MainCoordinatorProtocol {
@@ -16,4 +16,10 @@ final class MainCoordinator: NavigationCoordinator , MainCoordinatorProtocol {
          guard let controller = MainBuilder.generate(coordinator: self) else { return }
          navigationController.pushViewController(controller, animated: true)
      }
+    
+    func coordinateToProductDetail(id: Int) {
+        let coordinator = ProductDetailCoordinator(navigationController: navigationController)
+        coordinator.id = id
+        coordinate(to: coordinator)
+    }
 }

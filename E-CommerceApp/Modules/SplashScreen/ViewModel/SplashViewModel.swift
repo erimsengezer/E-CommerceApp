@@ -10,6 +10,8 @@ import Foundation
 
 protocol SplashViewModelProtocol: AnyObject {
     var view: SplashViewProtocol? { get set }
+    
+    func coordinateToLogin()
 }
 
 final class SplashViewModel: SplashViewModelProtocol {
@@ -27,6 +29,10 @@ final class SplashViewModel: SplashViewModelProtocol {
     required init(repository: SplashRepositoryProtocol, coordinator: SplashCoordinatorProtocol ) {
         self.repository = repository
         self.coordinator = coordinator
+    }
+    
+    func coordinateToLogin() {
+        coordinator.coordinateToLogin()
     }
 }
 
