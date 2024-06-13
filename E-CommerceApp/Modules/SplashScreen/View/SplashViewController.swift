@@ -36,7 +36,7 @@ final class SplashViewController: UIViewController {
         super.viewDidLoad()
         Logger.log("SplashViewController --- viewDidLoad")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            Utils.shared.appDelegate.startFlowMain()
+            self.viewModel.coordinateToLogin()
         })
     }
 }
